@@ -1,4 +1,6 @@
 #pragma once
+#include "Joueur.h"
+
 
 namespace CppCLRWinFormsProject {
 
@@ -41,7 +43,8 @@ namespace CppCLRWinFormsProject {
 	protected:
 
 	protected:
-
+		//nombre de coups joués
+		int coupsJoues;
 
 
 	private: System::Windows::Forms::PictureBox^ case_2_2;
@@ -53,7 +56,8 @@ namespace CppCLRWinFormsProject {
 
 	private: System::Windows::Forms::PictureBox^ case_0_0;
 	private: System::Windows::Forms::PictureBox^ case_0_1;
-	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Button^ buttonQuitter;
+
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Label^ labelNomJoueur1;
 	private: System::Windows::Forms::Label^ labelNomJoueur2;
@@ -90,7 +94,32 @@ namespace CppCLRWinFormsProject {
 			this->case_1_0 = (gcnew System::Windows::Forms::PictureBox());
 			this->case_0_0 = (gcnew System::Windows::Forms::PictureBox());
 			this->case_0_1 = (gcnew System::Windows::Forms::PictureBox());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+
+// added by myself 
+			this->case_0_2->Tag = Point(0,2);
+			this->case_1_1->Tag = Point(1,1) ;
+			this->case_1_2->Tag = Point(1,2);
+			this->case_2_1->Tag = Point (2,1);
+			this->case_2_2->Tag = Point(2,2);
+			this->case_2_0->Tag = Point(2,0);
+			this->case_1_0->Tag = Point (1,0);
+			this->case_0_0->Tag = Point(0,0);
+			this->case_0_1->Tag = Point (0, 1);
+
+
+			this->case_0_0->Image = nullptr;
+			this->case_1_0->Image = nullptr;
+			this->case_2_0->Image = nullptr;
+			this->case_0_1->Image = nullptr;
+			this->case_1_1->Image = nullptr;
+			this->case_2_1->Image = nullptr;
+			this->case_0_2->Image = nullptr;
+			this->case_1_2->Image = nullptr;
+			this->case_2_2->Image = nullptr;
+
+	/// end of added code (non generated when working on the windows forms)		
+
+			this->buttonQuitter = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->labelNomJoueur1 = (gcnew System::Windows::Forms::Label());
 			this->labelNomJoueur2 = (gcnew System::Windows::Forms::Label());
@@ -119,6 +148,7 @@ namespace CppCLRWinFormsProject {
 			this->case_0_2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
 			this->case_0_2->TabIndex = 0;
 			this->case_0_2->TabStop = false;
+			this->case_0_2->Click += gcnew System::EventHandler(this, &Form1::clicCase);
 			// 
 			// case_1_1
 			// 
@@ -130,6 +160,7 @@ namespace CppCLRWinFormsProject {
 			this->case_1_1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
 			this->case_1_1->TabIndex = 1;
 			this->case_1_1->TabStop = false;
+			this->case_1_1->Click += gcnew System::EventHandler(this, &Form1::clicCase);
 			// 
 			// case_1_2
 			// 
@@ -141,6 +172,7 @@ namespace CppCLRWinFormsProject {
 			this->case_1_2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
 			this->case_1_2->TabIndex = 2;
 			this->case_1_2->TabStop = false;
+			this->case_1_2->Click += gcnew System::EventHandler(this, &Form1::clicCase);
 			// 
 			// case_2_1
 			// 
@@ -152,6 +184,7 @@ namespace CppCLRWinFormsProject {
 			this->case_2_1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
 			this->case_2_1->TabIndex = 3;
 			this->case_2_1->TabStop = false;
+			this->case_2_1->Click += gcnew System::EventHandler(this, &Form1::clicCase);
 			// 
 			// case_2_2
 			// 
@@ -163,6 +196,7 @@ namespace CppCLRWinFormsProject {
 			this->case_2_2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
 			this->case_2_2->TabIndex = 4;
 			this->case_2_2->TabStop = false;
+			this->case_2_2->Click += gcnew System::EventHandler(this, &Form1::clicCase);
 			// 
 			// case_2_0
 			// 
@@ -174,6 +208,7 @@ namespace CppCLRWinFormsProject {
 			this->case_2_0->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
 			this->case_2_0->TabIndex = 5;
 			this->case_2_0->TabStop = false;
+			this->case_2_0->Click += gcnew System::EventHandler(this, &Form1::clicCase);
 			// 
 			// case_1_0
 			// 
@@ -185,6 +220,7 @@ namespace CppCLRWinFormsProject {
 			this->case_1_0->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
 			this->case_1_0->TabIndex = 6;
 			this->case_1_0->TabStop = false;
+			this->case_1_0->Click += gcnew System::EventHandler(this, &Form1::clicCase);
 			// 
 			// case_0_0
 			// 
@@ -196,6 +232,7 @@ namespace CppCLRWinFormsProject {
 			this->case_0_0->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
 			this->case_0_0->TabIndex = 7;
 			this->case_0_0->TabStop = false;
+			this->case_0_0->Click += gcnew System::EventHandler(this, &Form1::clicCase);
 			// 
 			// case_0_1
 			// 
@@ -207,24 +244,27 @@ namespace CppCLRWinFormsProject {
 			this->case_0_1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
 			this->case_0_1->TabIndex = 8;
 			this->case_0_1->TabStop = false;
+			this->case_0_1->Click += gcnew System::EventHandler(this, &Form1::clicCase);
 			// 
-			// button1
+			// buttonQuitter
 			// 
-			this->button1->Location = System::Drawing::Point(585, 437);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(123, 32);
-			this->button1->TabIndex = 9;
-			this->button1->Text = L"Quitter";
-			this->button1->UseVisualStyleBackColor = true;
+			this->buttonQuitter->Location = System::Drawing::Point(585, 437);
+			this->buttonQuitter->Name = L"buttonQuitter";
+			this->buttonQuitter->Size = System::Drawing::Size(123, 32);
+			this->buttonQuitter->TabIndex = 9;
+			this->buttonQuitter->Text = L"Quitter";
+			this->buttonQuitter->UseVisualStyleBackColor = true;
+			this->buttonQuitter->Click += gcnew System::EventHandler(this, &Form1::cliqueBoutonQuitter);
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(75, 437);
+			this->button2->Location = System::Drawing::Point(61, 437);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(127, 32);
+			this->button2->Size = System::Drawing::Size(141, 32);
 			this->button2->TabIndex = 10;
 			this->button2->Text = L"Nouvelle Partie";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &Form1::clicBoutonNouvellePartie);
 			// 
 			// labelNomJoueur1
 			// 
@@ -298,7 +338,7 @@ namespace CppCLRWinFormsProject {
 			this->Controls->Add(this->labelNomJoueur2);
 			this->Controls->Add(this->labelNomJoueur1);
 			this->Controls->Add(this->button2);
-			this->Controls->Add(this->button1);
+			this->Controls->Add(this->buttonQuitter);
 			this->Controls->Add(this->case_0_1);
 			this->Controls->Add(this->case_0_0);
 			this->Controls->Add(this->case_1_0);
@@ -326,9 +366,54 @@ namespace CppCLRWinFormsProject {
 
 		}
 #pragma endregion
-	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+		System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+		}
+		System::Void label1_Click_1(System::Object^ sender, System::EventArgs^ e) {
+		}
+		
+	private:	System::Void cliqueBoutonQuitter(System::Object^ sender, System::EventArgs^ e) {
+		 Close();
 	}
-private: System::Void label1_Click_1(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void clicBoutonNouvellePartie(System::Object^ sender, System::EventArgs^ e) {
+
 }
+private: System::Void clicCase(System::Object^ sender, System::EventArgs^ e) { // code que j'a rajouté
+	PictureBox^ appelant = (PictureBox^)sender;
+	Point coordonnees = (Point)appelant->Tag;
+	MessageBox::Show("Clic sur la case" + coordonnees);
+}
+	   void PasseLaMain(Joueur^ joueur)
+	   {
+		   joueurCourant = joueur;
+		   labelJoueurCourant->Text = joueurCourant->propNom->ToUpper() + " JOUE";
+	   }
+	   void NouvelleManche() {
+		   //instanceie un tableau  à deux dimensions, de taille3x3
+		   grille = gcnew array<Joueur^, 2>(3, 3);
+		   //initialise chacun de ses éléments à nullptr
+		   for each (Joueur ^ %caseGrille in grille)
+			   caseGrille = nullptr;
+		   coupsJoues = 0;
+	   }
+	   void NouvellePartie() {
+		   //crée un tablea à deux éléments
+		   listeJoueurs = gcnew array<Joueur^>(2);
+
+		   //instancie les deux objets Joueur
+		   listeJoueurs[0] = gcnew Joueur("Yohann", listeImages->Images[0],
+			   labelScoreJoueur1);
+		   listeJoueurs[1] = gcnew Joueur("Elijah", listeImages[1], labelScoreJoueur2);
+	   }
+	   //actualise la zone de texte portant le nom des joueurs
+	   labelNomJoueur1->Text = listeJoueurs[0]->propNom;
+	   labelNomJoueur2->Text = listeJoueurs[1]->propNom;
+
+	   //passe la main au 1er joueur et débute la manche 
+	   PasseLaMain(listeJoueurs[0];
+	   NouvelleManche();
+}
+
+	 
 };
-}
+
+

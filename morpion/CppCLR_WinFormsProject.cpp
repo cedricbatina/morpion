@@ -1,4 +1,7 @@
 #include "pch.h"
+#include "Joueur.h"
+#include "Form1.h"
+
 
 using namespace System;
 
@@ -7,7 +10,6 @@ using namespace System;
 //    return 0;
 // }
 
-#include "Form1.h"
 
 using namespace System::Windows::Forms;
 
@@ -19,3 +21,13 @@ int main()
   Application::Run(gcnew CppCLRWinFormsProject::Form1());
   return 0;
 }
+
+System::Void cliqueBoutonQuitter(System::Object^ sender, System::EventArgs^ e) {
+	
+}
+ System::Void clicBoutonNouvellePartie(System::Object^ sender, System::EventArgs^ e) {
+}
+ System::Void clicCase(System::Object^ sender, System::EventArgs^ e) {
+}
+
+ 
