@@ -1,34 +1,46 @@
 //#include "Form1.h"
+#pragma once
 using namespace System;
 using namespace System::Drawing;
 using namespace System::Windows::Forms;
 
 ref class Joueur
 {
-private: 
+private:
 	String^ nom;
 	Image^ symbole;
-	int score; 
+	int score;
 	Label^ labelScore;
-	
-	
-public: 
-	
 
-	
 
+public:
 	Joueur(String^ nom, Image^ symbole, Label^ labelScore);
-	bool Alignement(void);
+	/**/
+		// propScore: accesseurs et mutateurs
+	property int propScore {
+		int get();
+		void set(int valeur);
 
-	void PasseLaMain(Joueur^ joueur, Label^ labelJoueurCourant);
-	void NouvelleManche();
-	void NouvellePartie();
+	}
+	//propNom: accesseur seul
+	property String^ propNom {
+		String^ get();
+	}
+	//propSymbole : accesseur suel
+	property Image^ propSymbole {
+		Image^ get();
+	}
+};
+
+
+/*Joueur(String^ nom, Image^ symbole, Label^ labelScore);
+
 // propScore: accesseurs et mutateurs
 	property int propScore {
 		int get();
 		void set(int valeur);
 
-}
+	}
 	//propNom: accesseur seul
 	property String^ propNom {
 		String^ get();
@@ -48,5 +60,4 @@ public:
 	}
 	Image^ Joueur::propSymbole::get(void) {
 		return (Image^)symbole->Clone();
-	}
-};
+	}*/

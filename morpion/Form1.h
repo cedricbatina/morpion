@@ -27,8 +27,7 @@ namespace CppCLRWinFormsProject {
 			// 
 
 				// added self code
-		// //avancement du remplissage de la grille 
-		array<Joueur^, 2>^ grille; // Tableau à 2 dimensions
+	
 
 		// Initialisation de grille (tableau 3x3)
 		grille = gcnew array<Joueur^, 2>(3, 3);
@@ -117,14 +116,9 @@ namespace CppCLRWinFormsProject {
 		void PasseLaMain(Joueur^ joueur);
 		bool Alignement(void);
 		
+		array<Joueur^, 2>^ grille;
 		int coupsJoues;
-
-
-
-		//Handle vers le joueur qui a la main
 		Joueur^ joueurCourant;
-
-
 		array<Joueur^>^ listeJoueurs;
 
 

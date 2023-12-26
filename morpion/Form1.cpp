@@ -1,6 +1,6 @@
 #include "pch.h"
-#include "Joueur.h"
-#include "Form1.h"
+//#include "Joueur.h"
+
 
 using namespace System;
 using namespace System::Windows::Forms;

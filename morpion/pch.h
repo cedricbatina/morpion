@@ -9,5 +9,6 @@
 
 // add headers that you want to pre-compile here
 #include "Joueur.h"
+#include "Form1.h"
 
 #endif //PCH_H
