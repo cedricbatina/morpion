@@ -1,3 +1,4 @@
+//#include "Form1.h"
 using namespace System;
 using namespace System::Drawing;
 using namespace System::Windows::Forms;
@@ -10,9 +11,17 @@ private:
 	int score; 
 	Label^ labelScore;
 	
+	
 public: 
-	Joueur(String^ nom, Image^ symbole, Label^ labelScore);
+	
 
+
+	Joueur(String^ nom, Image^ symbole, Label^ labelScore);
+	bool Alignement(void);
+
+	void PasseLaMain(Joueur^ joueur, Label^ labelJoueurCourant);
+	void NouvelleManche();
+	void NouvellePartie();
 // propScore: accesseurs et mutateurs
 	property int propScore {
 		int get();
@@ -27,14 +36,5 @@ public:
 	property Image^ propSymbole {
 		Image^ get();
 	}
-
-	//Tableau contenant les deux objets Joueur
-	array<Joueur^>^ listeJoueurs;
-
-	//Handle vers le joueur qui a la main
-	Joueur^ joueurCourant;
-
-	//avancement du remplissage de la grille 
-	array<Joueur^, 2>^ grille; // Tableau à 2 dimensions
 
 };

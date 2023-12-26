@@ -9,6 +9,10 @@ using namespace System;
 // {
 //    return 0;
 // }
+//Tableau contenant les deux objets Joueur
+
+
+
 
 
 using namespace System::Windows::Forms;
@@ -16,18 +20,14 @@ using namespace System::Windows::Forms;
 [STAThread]
 int main()
 {
+
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
   Application::Run(gcnew CppCLRWinFormsProject::Form1());
+
   return 0;
 }
 
-System::Void cliqueBoutonQuitter(System::Object^ sender, System::EventArgs^ e) {
-	
-}
- System::Void clicBoutonNouvellePartie(System::Object^ sender, System::EventArgs^ e) {
-}
- System::Void clicCase(System::Object^ sender, System::EventArgs^ e) {
-}
 
- 
+
+

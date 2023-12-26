@@ -1,5 +1,6 @@
 #pragma once
-#include "Joueur.h"
+//#include "Joueur.h"
+//using namespace Joueur;
 
 
 namespace CppCLRWinFormsProject {
@@ -23,7 +24,35 @@ namespace CppCLRWinFormsProject {
 			//
 			//TODO: Add the constructor code here
 			//
+			// 
+
+				// added self code
+		// //avancement du remplissage de la grille 
+			array<Joueur^, 2>^ grille; // Tableau à 2 dimensions
+
+			// Initialisation de grille (tableau 3x3)
+			grille = gcnew array<Joueur^, 2>(3, 3);
+			// Initialise tous les éléments de grille à nullptr
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++) {
+					grille[i, j] = nullptr;
+				}
+			}
+
+
+
+
+
 		}
+	
+
+
+
+		//nombre de coups joués
+		
+
+		
+		
 
 	protected:
 		/// <summary>
@@ -43,8 +72,7 @@ namespace CppCLRWinFormsProject {
 	protected:
 
 	protected:
-		//nombre de coups joués
-		int coupsJoues;
+
 
 
 	private: System::Windows::Forms::PictureBox^ case_2_2;
@@ -65,6 +93,8 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ labelScoreJoueur2;
 	private: System::Windows::Forms::Label^ labelJoueurCourant;
 	private: System::Windows::Forms::Label^ Challenge;
+	private: System::Windows::Forms::ImageList^ listeImages;
+	private: System::ComponentModel::IContainer^ components;
 
 
 
@@ -76,7 +106,17 @@ namespace CppCLRWinFormsProject {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		Void label1_Click(System::Object^ sender, System::EventArgs^ e) {}
+		Void label1_Click_1(System::Object^ sender, System::EventArgs^ e) {}
+		void cliqueBoutonQuitter(System::Object^ sender, System::EventArgs^ e);
+		void clicCase(System::Object^ sender, System::EventArgs^ e);
+
+		void clicBoutonNouvellePartie(Object^ sender, EventArgs^ e);
+		void NouvellePartie(void);
+		void NouvelleManche(void);
+		void PasseLaMain(Joueur^ joueur, Label^ labelJoueurCourant);
+		bool Alignement(void);
+		
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -85,6 +125,11 @@ namespace CppCLRWinFormsProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+
+
+
+			this->components = (gcnew System::ComponentModel::Container());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
 			this->case_0_2 = (gcnew System::Windows::Forms::PictureBox());
 			this->case_1_1 = (gcnew System::Windows::Forms::PictureBox());
 			this->case_1_2 = (gcnew System::Windows::Forms::PictureBox());
@@ -94,31 +139,6 @@ namespace CppCLRWinFormsProject {
 			this->case_1_0 = (gcnew System::Windows::Forms::PictureBox());
 			this->case_0_0 = (gcnew System::Windows::Forms::PictureBox());
 			this->case_0_1 = (gcnew System::Windows::Forms::PictureBox());
-
-// added by myself 
-			this->case_0_2->Tag = Point(0,2);
-			this->case_1_1->Tag = Point(1,1) ;
-			this->case_1_2->Tag = Point(1,2);
-			this->case_2_1->Tag = Point (2,1);
-			this->case_2_2->Tag = Point(2,2);
-			this->case_2_0->Tag = Point(2,0);
-			this->case_1_0->Tag = Point (1,0);
-			this->case_0_0->Tag = Point(0,0);
-			this->case_0_1->Tag = Point (0, 1);
-
-
-			this->case_0_0->Image = nullptr;
-			this->case_1_0->Image = nullptr;
-			this->case_2_0->Image = nullptr;
-			this->case_0_1->Image = nullptr;
-			this->case_1_1->Image = nullptr;
-			this->case_2_1->Image = nullptr;
-			this->case_0_2->Image = nullptr;
-			this->case_1_2->Image = nullptr;
-			this->case_2_2->Image = nullptr;
-
-	/// end of added code (non generated when working on the windows forms)		
-
 			this->buttonQuitter = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->labelNomJoueur1 = (gcnew System::Windows::Forms::Label());
@@ -127,6 +147,7 @@ namespace CppCLRWinFormsProject {
 			this->labelScoreJoueur2 = (gcnew System::Windows::Forms::Label());
 			this->labelJoueurCourant = (gcnew System::Windows::Forms::Label());
 			this->Challenge = (gcnew System::Windows::Forms::Label());
+			this->listeImages = (gcnew System::Windows::Forms::ImageList(this->components));
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->case_0_2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->case_1_1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->case_1_2))->BeginInit();
@@ -326,6 +347,13 @@ namespace CppCLRWinFormsProject {
 			this->Challenge->Text = L"Génie Logiciel - Challenge c++";
 			this->Challenge->Click += gcnew System::EventHandler(this, &Form1::label1_Click_1);
 			// 
+			// listeImages
+			// 
+			this->listeImages->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"listeImages.ImageStream")));
+			this->listeImages->TransparentColor = System::Drawing::Color::Transparent;
+			this->listeImages->Images->SetKeyName(0, L"rond.bmp");
+			this->listeImages->Images->SetKeyName(1, L"croix.bmp");
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
@@ -364,56 +392,31 @@ namespace CppCLRWinFormsProject {
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
-		}
+
+
+			this->case_0_0->Tag = Point(0, 0);
+			this->case_0_1->Tag = Point(0, 1);
+			this->case_0_2->Tag = Point(0, 2);
+			this->case_1_0->Tag = Point(1, 0);
+			this->case_1_1->Tag = Point(1, 1);
+			this->case_1_2->Tag = Point(1, 2);
+			this->case_2_0->Tag = Point(2, 0);
+			this->case_2_1->Tag = Point(2, 1);
+			this->case_2_2->Tag = Point(2, 2);
+
+			NouvellePartie();
+
+
+			this->buttonQuitter->Click += gcnew EventHandler(this, &Form1::cliqueBoutonQuitter);
+
 #pragma endregion
-		System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
-		}
-		System::Void label1_Click_1(System::Object^ sender, System::EventArgs^ e) {
+
+			
+
 		}
 		
-	private:	System::Void cliqueBoutonQuitter(System::Object^ sender, System::EventArgs^ e) {
-		 Close();
+
+
 	}
-private: System::Void clicBoutonNouvellePartie(System::Object^ sender, System::EventArgs^ e) {
-
-}
-private: System::Void clicCase(System::Object^ sender, System::EventArgs^ e) { // code que j'a rajouté
-	PictureBox^ appelant = (PictureBox^)sender;
-	Point coordonnees = (Point)appelant->Tag;
-	MessageBox::Show("Clic sur la case" + coordonnees);
-}
-	   void PasseLaMain(Joueur^ joueur)
-	   {
-		   joueurCourant = joueur;
-		   labelJoueurCourant->Text = joueurCourant->propNom->ToUpper() + " JOUE";
-	   }
-	   void NouvelleManche() {
-		   //instanceie un tableau  à deux dimensions, de taille3x3
-		   grille = gcnew array<Joueur^, 2>(3, 3);
-		   //initialise chacun de ses éléments à nullptr
-		   for each (Joueur ^ %caseGrille in grille)
-			   caseGrille = nullptr;
-		   coupsJoues = 0;
-	   }
-	   void NouvellePartie() {
-		   //crée un tablea à deux éléments
-		   listeJoueurs = gcnew array<Joueur^>(2);
-
-		   //instancie les deux objets Joueur
-		   listeJoueurs[0] = gcnew Joueur("Yohann", listeImages->Images[0],
-			   labelScoreJoueur1);
-		   listeJoueurs[1] = gcnew Joueur("Elijah", listeImages[1], labelScoreJoueur2);
-	   }
-	   //actualise la zone de texte portant le nom des joueurs
-	   labelNomJoueur1->Text = listeJoueurs[0]->propNom;
-	   labelNomJoueur2->Text = listeJoueurs[1]->propNom;
-
-	   //passe la main au 1er joueur et débute la manche 
-	   PasseLaMain(listeJoueurs[0];
-	   NouvelleManche();
-}
-
-	 
-};
-
-
+	; }
+	
