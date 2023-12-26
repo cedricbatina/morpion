@@ -7,25 +7,6 @@ Joueur::Joueur(String^ nom, Image^ symbole, Label^ labelScore)
 	this->labelScore = labelScore;
 	propScore = 0;
 }
-int Joueur::propScore::get() {
-	return score;
-}
-
-String^ Joueur::propNom::get() {
-	return (String^)nom->Clone();
-}
-Image^ Joueur::propSymbole::get() {
-	return (Image ^) symbole->Clone();
-}
-
-//nombre de joues par un joueur
-int coupsJoues;
-
-array<Joueur^>^ listeJoueurs;
-
-
-//Handle vers le joueur qui a la main
-Joueur^ joueurCourant;
 
 void Joueur::propScore::set(int valeur)
 {
@@ -37,10 +18,5 @@ void Joueur::propScore::set(int valeur)
 	labelScore->Text = propScore.ToString();
 
 }
-
-
-
-
-
 
 

@@ -15,6 +15,7 @@ private:
 public: 
 	
 
+	
 
 	Joueur(String^ nom, Image^ symbole, Label^ labelScore);
 	bool Alignement(void);
@@ -37,4 +38,15 @@ public:
 		Image^ get();
 	}
 
+
+	int Joueur::propScore::get(void) {
+		return score;
+	}
+
+	String^ Joueur::propNom::get(void) {
+		return (String^)nom->Clone();
+	}
+	Image^ Joueur::propSymbole::get(void) {
+		return (Image^)symbole->Clone();
+	}
 };

@@ -28,16 +28,16 @@ namespace CppCLRWinFormsProject {
 
 				// added self code
 		// //avancement du remplissage de la grille 
-			array<Joueur^, 2>^ grille; // Tableau à 2 dimensions
+		array<Joueur^, 2>^ grille; // Tableau à 2 dimensions
 
-			// Initialisation de grille (tableau 3x3)
-			grille = gcnew array<Joueur^, 2>(3, 3);
-			// Initialise tous les éléments de grille à nullptr
-			for (int i = 0; i < 3; i++) {
-				for (int j = 0; j < 3; j++) {
-					grille[i, j] = nullptr;
-				}
+		// Initialisation de grille (tableau 3x3)
+		grille = gcnew array<Joueur^, 2>(3, 3);
+		// Initialise tous les éléments de grille à nullptr
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				grille[i, j] = nullptr;
 			}
+		}
 
 
 
@@ -114,9 +114,20 @@ namespace CppCLRWinFormsProject {
 		void clicBoutonNouvellePartie(Object^ sender, EventArgs^ e);
 		void NouvellePartie(void);
 		void NouvelleManche(void);
-		void PasseLaMain(Joueur^ joueur, Label^ labelJoueurCourant);
+		void PasseLaMain(Joueur^ joueur);
 		bool Alignement(void);
 		
+		int coupsJoues;
+
+
+
+		//Handle vers le joueur qui a la main
+		Joueur^ joueurCourant;
+
+
+		array<Joueur^>^ listeJoueurs;
+
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -416,7 +427,7 @@ namespace CppCLRWinFormsProject {
 		}
 		
 
-
+	
 	}
 	; }
 	
