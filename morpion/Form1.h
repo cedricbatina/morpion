@@ -414,7 +414,7 @@ namespace CppCLRWinFormsProject {
 
 			this->buttonQuitter->Click += gcnew EventHandler(this, &Form1::cliqueBoutonQuitter);
 
-#pragma endregion
+//#pragma endregion
 
 			
 

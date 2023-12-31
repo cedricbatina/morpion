@@ -4,12 +4,16 @@
 
 using namespace System;
 using namespace System::Windows::Forms;
-//nombre de joues par un joueur
 
 
 namespace CppCLRWinFormsProject {
 	// Implémentation des méthodes de Form1 ici
 	
+
+
+
+
+
 	void Form1::PasseLaMain(Joueur^ joueur)
 	{
 		joueurCourant = joueur;
