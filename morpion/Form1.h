@@ -93,6 +93,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ labelJoueurCourant;
 	private: System::Windows::Forms::Label^ Challenge;
 	private: System::Windows::Forms::ImageList^ listeImages;
+
 	private: System::ComponentModel::IContainer^ components;
 
 
@@ -130,9 +131,6 @@ namespace CppCLRWinFormsProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-
-
-
 			this->components = (gcnew System::ComponentModel::Container());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
 			this->case_0_2 = (gcnew System::Windows::Forms::PictureBox());
@@ -396,27 +394,6 @@ namespace CppCLRWinFormsProject {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->case_0_1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
-
-
-
-			this->case_0_0->Tag = Point(0, 0);
-			this->case_0_1->Tag = Point(0, 1);
-			this->case_0_2->Tag = Point(0, 2);
-			this->case_1_0->Tag = Point(1, 0);
-			this->case_1_1->Tag = Point(1, 1);
-			this->case_1_2->Tag = Point(1, 2);
-			this->case_2_0->Tag = Point(2, 0);
-			this->case_2_1->Tag = Point(2, 1);
-			this->case_2_2->Tag = Point(2, 2);
-
-			NouvellePartie();
-
-
-			this->buttonQuitter->Click += gcnew EventHandler(this, &Form1::cliqueBoutonQuitter);
-
-//#pragma endregion
-
-			
 
 		}
 		
